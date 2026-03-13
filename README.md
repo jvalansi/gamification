@@ -15,7 +15,7 @@ Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
 ## Structure
 
 ### Notion (source of truth)
-- **משימות (Tasks DB)** — all tasks with:
+- **Tasks DB (משימות)** — all tasks with:
   - `Project` tag (multi-select)
   - `Workload (hrs)` — estimated hours
   - `Status` — To Do / Doing / Done
