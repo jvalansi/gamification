@@ -4,13 +4,26 @@ A productivity system that assigns monetary value to tasks based on project ROI,
 
 ## Concept
 
-Each project has an **expected ROI** (monthly $ value). Each task represents a % of that project's completion. Completing a task earns you theoretical dollars:
+Each task earns points based on its ROI per hour:
 
 ```
-task_points ($) = (task_workload_hrs / project_total_hrs) × project_roi ($)
+task_points ($) = task_workload_hrs × roi_per_hour ($/hr)
 ```
 
 Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
+
+### How ROI/hr is estimated
+
+**Option A — Direct (default):** Assign `roi_per_hour` directly to each task based on gut feel or market rate.
+
+**Option B — Project-anchored (preferred):** Derive ROI/hr from a project-level goal:
+
+```
+roi_per_hour = project_roi ($) / project_total_hrs
+task_points  = task_workload_hrs × roi_per_hour
+```
+
+This makes estimates principled — each task's value flows from a well-defined project goal rather than being guessed in isolation. The hierarchy is intentionally shallow (project → task, no intermediate steps layer) to keep overhead low.
 
 ## Structure
 
