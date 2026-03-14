@@ -51,7 +51,7 @@ Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
 
 ## Roadmap
 
-- [ ] Add `Workload (hrs)` column to Notion tasks DB
+- [x] Add `Workload (hrs)` column to Notion tasks DB
 - [ ] Confirm `ROI Multiplier` column exists on Notion projects page
 - [ ] Script to calculate total points earned from completed tasks
 - [ ] Slack command `/points` — show current balance
