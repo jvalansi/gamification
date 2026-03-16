@@ -42,7 +42,6 @@ Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
 |---|---|---|
 | earnings-trader | 5× | Active — paper trading |
 | slack-claude-bot | 1× | Active — personal use |
-| discord-claude-bot | 1× | Active — personal use |
 | twilio-claude-bot | 2× | Active — prototype |
 | video-ai-bot | 3× | In progress |
 | gamification | — | Meta (productivity multiplier) |
