@@ -40,10 +40,12 @@ Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
 
 | Project | ROI Multiplier | Status |
 |---|---|---|
-| earnings-trader | TBD | Active |
-| twilio-claude-bot | TBD | Active |
-| video-ai-bot | TBD | On hold |
-| gamification | — | Meta |
+| earnings-trader | 5× | Active — paper trading |
+| slack-claude-bot | 1× | Active — personal use |
+| discord-claude-bot | 1× | Active — personal use |
+| twilio-claude-bot | 2× | Active — prototype |
+| video-ai-bot | 3× | In progress |
+| gamification | — | Meta (productivity multiplier) |
 
 ## Play Time Rate
 
