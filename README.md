@@ -50,6 +50,23 @@ Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
 
 **$10 earned = 1hr play time** (adjust to taste)
 
+## Roadmap to Profitability
+
+**Current state:** Concept defined, Notion DB structured, no automation yet.
+
+| Milestone | Description | Expected Monthly ROI |
+|---|---|---|
+| **Close the feedback loop** | Weight points by ROI field so high-value tasks earn more | $300/mo indirect |
+| **Automation** | Script to sync completed Notion tasks → points balance | — |
+| **Slack integration** | `/points` command, auto-post on task completion, weekly summary | — |
+| **Productize** | SaaS for indie hackers / solo founders with their own Notion | $50–100/mo |
+
+**Next step (Notion task):** Connect point values to project ROI metrics — align incentives with actual business value.
+
+**Notion project page:** [gamification — Strategy & Profitability](https://www.notion.so/gamification-Strategy-Profitability-32505a1b5e01819b9b62cb1825f09a54)
+
+---
+
 ## Roadmap
 
 - [x] Add `Workload (hrs)` column to Notion tasks DB
