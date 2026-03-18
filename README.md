@@ -4,6 +4,8 @@ A productivity system that assigns monetary value to tasks based on project ROI,
 
 ## Concept
 
+> For a detailed discussion of ROI formula approaches and design tradeoffs, see [ROI_FORMULA.md](ROI_FORMULA.md).
+
 Each task earns points based on how long it takes, your hourly rate, and the ROI multiplier of its project:
 
 ```
