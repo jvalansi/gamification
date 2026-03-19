@@ -54,7 +54,7 @@ Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
 
 | Project | Revenue/yr | Probability | Hours | Fun | ROI | Status |
 |---|---|---|---|---|---|---|
-| earnings-trader | $24,000 | 60% | 30 | 0.6 | 1,200 | Active — paper trading |
+| earnings-trader | $24,000 | 35% | 30 | 0.6 | 700 | Active — paper trading |
 | slack-claude-bot | $6,000 | 40% | 60 | 0.5 | 80 | Active — personal use |
 | twilio-claude-bot | $3,600 | 30% | 50 | 0.55 | 48 | Active — prototype |
 | video-ai-bot | $36,000 | 35% | 150 | 0.75 | 336 | In progress |
