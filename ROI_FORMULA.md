@@ -124,18 +124,28 @@ ROI = fun_score + revenue × probability × years / hours
 
 ---
 
-## Current Direction
-
-The time-as-currency framing (Approach 4) provides the best theoretical justification for including fun in the formula. In practice it simplifies to:
+## Chosen Formula
 
 ```
-ROI = fun_score + (yearly_revenue × probability × years) / hours
+ROI = (yearly_revenue × probability) / (hours × (1 - fun_score))
 ```
 
-Where `years` is a fixed horizon (e.g. 3 years) applied consistently across all projects. Since it's a constant multiplier, it doesn't affect rankings — so in practice:
+**Intuition:** ROI is time out divided by time in.
+- **Numerator** — revenue buys freedom (time you don't need to work), scaled by probability
+- **Denominator** — only the *unfun* hours are a real cost; fun hours are already a return
 
-```
-ROI = fun_score + yearly_revenue × probability / hours
-```
+**Variables:**
 
-**Open question:** what is the right weight between the fun term and the financial term? Currently they add with equal weight, but an hour of highly fun work (fun_score=1.0) contributing the same as one unit of financial ROI may or may not feel right.
+| Variable | Description |
+|---|---|
+| `yearly_revenue` | Expected annual revenue at steady state |
+| `probability` | 0–1, estimated chance the project succeeds |
+| `hours` | Estimated hours to reach steady state |
+| `fun_score` | 0–1, combined Type 1 (enjoyment now) + Type 2 (rewarding after) |
+
+**Special case:** if `fun_score = 1`, don't calculate — just do it. Something that maxes out both types of fun is intrinsically worth doing regardless of financial return. The formula doesn't apply.
+
+**Notes:**
+- `yearly_revenue / cost_of_living` converts money to years of freedom, but since cost of living is a personal constant it cancels out across projects and can be dropped
+- Fun reduces the *cost* of work rather than adding to the *return* — more truthful than additive approaches
+- Rankings are stable under linear transformations (e.g. multiplying revenue by a valuation multiple for exit value)
