@@ -6,17 +6,26 @@ A productivity system that assigns monetary value to tasks based on project ROI,
 
 > For a detailed discussion of ROI formula approaches and design tradeoffs, see [ROI_FORMULA.md](ROI_FORMULA.md).
 
-Each task earns points based on how long it takes, your hourly rate, and the ROI multiplier of its project:
+Each task earns points based on how long it takes and the ROI of its project:
 
 ```
-task_points ($) = task_hours × hourly_rate ($) × roi_multiplier
+task_points = task_hours × project_roi
 ```
 
-**Example:** 2hr task, $100/hr rate, 3× ROI project → **$600 in points**
+Where project ROI is calculated as:
 
-- `task_hours` — estimated duration, set per task in Notion
-- `hourly_rate` — your baseline time value (default: $100/hr)
-- `roi_multiplier` — set per project in the Notion Projects page (e.g. 1× = break-even, 5× = high-leverage)
+```
+project_roi = (yearly_revenue × probability) / (hours × (1 - fun_score))
+```
+
+- `yearly_revenue` — expected annual revenue at steady state
+- `probability` — 0–1, estimated chance the project succeeds
+- `hours` — estimated hours to reach steady state
+- `fun_score` — 0–1, combined Type 1 (enjoyable now) + Type 2 (rewarding after) fun
+
+**Special case:** if `fun_score = 1`, the project is intrinsically worth doing — no ROI calculation needed.
+
+See [ROI_FORMULA.md](ROI_FORMULA.md) for the full design discussion.
 
 Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
 
@@ -28,9 +37,12 @@ Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
   - `Workload (hrs)` — estimated hours
   - `Status` — To Do / Doing / Done
   - `Top Level` tag — marks epics/parent tasks
-- **Projects page** — one row per project with:
-  - `ROI Multiplier` — leverage factor (e.g. 3× means the project returns 3× your time investment)
-  - `% Complete` — derived from done tasks
+- **Projects page (פרויקטים)** — one row per project with:
+  - `Yearly Revenue ($)` — expected annual revenue at steady state
+  - `Probability` — 0–1, estimated success probability
+  - `Work Hours` — estimated hours to reach steady state
+  - `Fun Score` — 0–1, Type 1 + Type 2 fun combined
+  - `ROI` — calculated automatically from the above
 
 ### Views
 - **All active** — Status ≠ Done, no Top Level filter
@@ -40,13 +52,13 @@ Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
 
 ## Projects & ROI Estimates
 
-| Project | ROI Multiplier | Status |
-|---|---|---|
-| earnings-trader | 5× | Active — paper trading |
-| slack-claude-bot | 1× | Active — personal use |
-| twilio-claude-bot | 2× | Active — prototype |
-| video-ai-bot | 3× | In progress |
-| gamification | — | Meta (productivity multiplier) |
+| Project | Revenue/yr | Probability | Hours | Fun | ROI | Status |
+|---|---|---|---|---|---|---|
+| earnings-trader | $24,000 | 60% | 30 | 0.6 | 1,200 | Active — paper trading |
+| slack-claude-bot | $6,000 | 40% | 60 | 0.5 | 80 | Active — personal use |
+| twilio-claude-bot | $3,600 | 30% | 50 | 0.55 | 48 | Active — prototype |
+| video-ai-bot | $36,000 | 35% | 150 | 0.75 | 336 | In progress |
+| gamification | $3,600 | 80% | 20 | 0.75 | 576 | Meta |
 
 ## Play Time Rate
 
