@@ -15,13 +15,16 @@ task_points = task_hours × project_roi
 Where project ROI is calculated as:
 
 ```
-project_roi = (yearly_revenue × probability) / (hours × (1 - fun_score))
+project_roi = (yearly_revenue × probability) / (work_weeks × (1 - fun_score) × work_week_value)
 ```
 
-- `yearly_revenue` — expected annual revenue at steady state
+- `yearly_revenue` — expected annual revenue at steady state ($)
 - `probability` — 0–1, estimated chance the project succeeds
-- `hours` — estimated hours to reach steady state
+- `work_weeks` — estimated weeks to reach steady state (= work hours / 40)
 - `fun_score` — 0–1, combined Type 1 (enjoyable now) + Type 2 (rewarding after) fun
+- `work_week_value` — dollar value of one work week (default: $4,000)
+
+ROI is a pure ratio: **expected $ return per $ of unfun work invested.**
 
 **Special case:** if `fun_score = 1`, the project is intrinsically worth doing — no ROI calculation needed.
 
@@ -52,13 +55,13 @@ Accumulated points can be spent on play time at a chosen rate (e.g. $10 = 1hr).
 
 ## Projects & ROI Estimates
 
-| Project | Revenue/yr | Probability | Hours | Fun | ROI | Status |
+| Project | Revenue/yr | Probability | Work Weeks | Fun | ROI | Status |
 |---|---|---|---|---|---|---|
-| earnings-trader | $24,000 | 35% | 30 | 0.6 | 700 | Active — paper trading |
-| slack-claude-bot | $6,000 | 40% | 60 | 0.5 | 80 | Active — personal use |
-| twilio-claude-bot | $3,600 | 30% | 50 | 0.55 | 48 | Active — prototype |
-| video-ai-bot | $36,000 | 35% | 150 | 0.75 | 336 | In progress |
-| gamification | $3,600 | 80% | 20 | 0.75 | 576 | Meta |
+| earnings-trader | $24,000 | 35% | 0.75 | 0.6 | 7.0 | Active — paper trading |
+| slack-claude-bot | $6,000 | 40% | 1.5 | 0.5 | 0.8 | Active — personal use |
+| twilio-claude-bot | $3,600 | 30% | 1.25 | 0.55 | 0.48 | Active — prototype |
+| video-ai-bot | $36,000 | 35% | 3.75 | 0.75 | 3.36 | In progress |
+| gamification | $3,600 | 80% | 0.5 | 0.75 | 5.76 | Meta |
 
 ## Play Time Rate
 

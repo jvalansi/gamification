@@ -127,25 +127,29 @@ ROI = fun_score + revenue × probability × years / hours
 ## Chosen Formula
 
 ```
-ROI = (yearly_revenue × probability) / (hours × (1 - fun_score))
+ROI = (yearly_revenue × probability) / (work_weeks × (1 - fun_score) × work_week_value)
 ```
 
-**Intuition:** ROI is time out divided by time in.
-- **Numerator** — revenue buys freedom (time you don't need to work), scaled by probability
-- **Denominator** — only the *unfun* hours are a real cost; fun hours are already a return
+Where `work_week_value = $4,000` and `work_weeks = work_hours / 40`.
+
+**Intuition:** ROI is expected $ return divided by $ cost of unfun work invested. A pure monetary ratio — everything stays in the same currency.
+- **Numerator** — expected dollar value the project generates per year, scaled by probability
+- **Denominator** — dollar cost of the unfun work to reach steady state (fun hours are free; only unfun ones cost you)
 
 **Variables:**
 
 | Variable | Description |
 |---|---|
-| `yearly_revenue` | Expected annual revenue at steady state |
+| `yearly_revenue` | Expected annual revenue at steady state ($) |
 | `probability` | 0–1, estimated chance the project succeeds |
-| `hours` | Estimated hours to reach steady state |
+| `work_weeks` | Estimated weeks to reach steady state (= work_hours / 40) |
 | `fun_score` | 0–1, combined Type 1 (enjoyment now) + Type 2 (rewarding after) |
+| `work_week_value` | Dollar value of one work week (default: $4,000) |
 
-**Special case:** if `fun_score = 1`, don't calculate — just do it. Something that maxes out both types of fun is intrinsically worth doing regardless of financial return. The formula doesn't apply.
+**Special case:** if `fun_score = 1`, don't calculate — just do it. The formula doesn't apply.
 
 **Notes:**
-- `yearly_revenue / cost_of_living` converts money to years of freedom, but since cost of living is a personal constant it cancels out across projects and can be dropped
+- Using money as the common unit means ROI can be interpreted directly: ROI > 1 means the project pays for itself in under a year; ROI = 7 means $7 expected return per $1 of unfun work invested
+- `work_week_value` is a personal constant — changing it scales all ROIs equally, so rankings are unaffected; it only matters for absolute interpretation
 - Fun reduces the *cost* of work rather than adding to the *return* — more truthful than additive approaches
 - Rankings are stable under linear transformations (e.g. multiplying revenue by a valuation multiple for exit value)
