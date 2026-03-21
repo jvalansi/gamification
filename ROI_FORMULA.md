@@ -127,20 +127,20 @@ ROI = fun_score + revenue × probability × years / hours
 ## Chosen Formula
 
 ```
-ROI = (yearly_revenue × probability) / (work_weeks × (1 - fun_score) × work_week_value)
+ROI = (total_revenue × probability) / (work_weeks × (1 - fun_score) × work_week_value)
 ```
 
 Where `work_week_value = $4,000` and `work_weeks = work_hours / 40`.
 
 **Intuition:** ROI is expected $ return divided by $ cost of unfun work invested. A pure monetary ratio — everything stays in the same currency.
-- **Numerator** — expected dollar value the project generates per year, scaled by probability
+- **Numerator** — total expected dollar value over the project's lifetime, scaled by probability
 - **Denominator** — dollar cost of the unfun work to reach steady state (fun hours are free; only unfun ones cost you)
 
 **Variables:**
 
 | Variable | Description |
 |---|---|
-| `yearly_revenue` | Expected annual revenue at steady state ($) |
+| `total_revenue` | Total expected revenue over project lifetime ($) |
 | `probability` | 0–1, estimated chance the project succeeds |
 | `work_weeks` | Estimated weeks to reach steady state (= work_hours / 40) |
 | `fun_score` | 0–1, combined Type 1 (enjoyment now) + Type 2 (rewarding after) |
